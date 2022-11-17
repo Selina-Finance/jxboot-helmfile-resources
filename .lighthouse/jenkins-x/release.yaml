@@ -25,8 +25,8 @@ spec:
           resources: {}
         - name: promote-changelog
           resources: {}
-        - name: promote-helm-release
-          resources: {}
+        # - name: promote-helm-release
+        #   resources: {}
   podTemplate: {}
   serviceAccountName: tekton-bot
   timeout: 1h30m
