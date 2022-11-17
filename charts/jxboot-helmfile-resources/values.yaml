@@ -112,11 +112,11 @@ ingress:
 
   # allows you to specify custom ingress class
   customIngressAnnotation:
-    bucketrepo: ""
-    chartmuseum: ""
-    hook: ""
-    nexus: ""
-    dockerRegistry: ""
+    bucketrepo: {}
+    chartmuseum: {}
+    hook: {}
+    nexus: {}
+    dockerRegistry: {}
 
 nexusServiceLink:
   enabled: false
