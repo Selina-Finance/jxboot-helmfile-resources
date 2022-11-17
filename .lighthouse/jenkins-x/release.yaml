@@ -11,23 +11,31 @@ spec:
       taskSpec:
         metadata: {}
         stepTemplate:
-          image: uses:jenkins-x/jx3-pipeline-catalog/tasks/helm/release.yaml@versionStream
+          image: uses:Selina-Finance/pipeline-catalog/tasks/helm/release.yaml@versionStream
           name: ""
-          resources: {}
+          resources:
+            # override limits for all containers here
+            limits: {}
           workingDir: /workspace/source
         steps:
-        - image: uses:jenkins-x/jx3-pipeline-catalog/tasks/git-clone/git-clone.yaml@versionStream
+        - image: uses:Selina-Finance/pipeline-catalog/tasks/git-clone/git-clone.yaml@versionStream
           name: ""
           resources: {}
         - name: next-version
           resources: {}
         - name: jx-variables
-          resources: {}
+          resources:
+            # override requests for the pod here
+            requests:
+              cpu: 400m
+              memory: 512Mi
         - name: promote-changelog
           resources: {}
-        # - name: promote-helm-release
+        - name: promote-helm-release
+          resources: {}
+        # - name: promote-jx-promote
         #   resources: {}
   podTemplate: {}
   serviceAccountName: tekton-bot
-  timeout: 1h30m
+  timeout: 12h0m0s
 status: {}
